@@ -29,7 +29,7 @@
 
         /* Sidebar */
         .sidebar {
-            width: 100px;
+            width: 125px;
             background-color: #f7f7f7;
             position: fixed;
             height: 100%;
@@ -48,28 +48,40 @@
 
         /* Main Content */
         .main-content {
-            margin-left: 270px;
+            margin-left: 175px;
             padding: 20px;
         }
 
         /* Categories */
-        .categories {
+        .horizontalcategories {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
         }
 
+        .verticalcategories{
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
         .category-btn {
-            padding: 10px 15px;
-            background-color: #f1f1f1;
+            padding: 10px 10px;
+            background-color: #820e10;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
         .category-btn.active {
-            background-color:#8d4f9b;
+            background-color:#360405;
             color: white;
+        }
+
+        .category-btn:hover {
+            background-color: #360405;
         }
 
         /* Grid for trip destinations */
@@ -112,25 +124,59 @@
             font-size: 14px;
             color: #666;
         }
+
+        .image-text-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #820e10;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .image-text-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .image-text-button:hover {
+            background-color: #360405;
+        }
     </style>
 </head>
 <body>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <img src="eagleride-logo.png" alt="EagleRide Logo">
-        <ul>
-            <li><a href="#">Trips</a></li>
-            <li><a href="#">Drivers</a></li>
-        </ul>
+        <div class="verticalcategories">
+            <a href="#" class="image-text-button">
+                <img src="/templates/images/menu.png" alt="Icon">
+                Menu
+            </a>
+            <a href="#" class="image-text-button">
+                <img src="/templates/images/trips.png" alt="Icon">
+                Trips
+            </a>
+            <a href="#" class="image-text-button">
+                <img src="/templates/images/drivers.png" alt="Icon">
+                Drivers
+            </a>
+        </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+        <img src="/templates/images/eagleride-logo.png" id="eagle"/>
         <!-- Categories -->
-        <div class="categories">
-            <button class="category-btn active">Going Today</button>
-            <button class="category-btn">Going Within 1 Week</button>
+        <div class="horizontalcategories">
+            <button class="category-btn">Going Today</button>
+            <button class="category-btn active">Going Within 1 Week</button>
             <button class="category-btn">Going Within 1 Month</button>
             <button class="category-btn">Going Within 50 Days</button>
             <button class="category-btn">Going Later This Semester</button>
@@ -138,9 +184,8 @@
 
         <!-- Trip Grid -->
         <div class="grid-container">
-            <!-- Trip Card Example -->
             <div class="trip-card">
-                <img src="map-placeholder.png" alt="Trip Destination">
+                <img src="/templates/images/natick.png" id="natick">
                 <div class="trip-details">
                     <div class="trip-name">Natick Mall</div>
                     <div class="trip-info">
@@ -150,9 +195,8 @@
                 </div>
             </div>
 
-            <!-- More Trip Cards -->
             <div class="trip-card">
-                <img src="map-placeholder.png" alt="Trip Destination">
+                <img src="/templates/images/star.png" id="star">
                 <div class="trip-details">
                     <div class="trip-name">Star Market</div>
                     <div class="trip-info">
@@ -162,23 +206,118 @@
                 </div>
             </div>
 
-            <!-- Add additional trip cards similarly -->
+            <div class="trip-card">
+                <img src="/templates/images/library.png" id="library">
+                <div class="trip-details">
+                    <div class="trip-name">Boston Public Library</div>
+                    <div class="trip-info">
+                        <span>Going on 10/07/2024</span>
+                        <span>👤 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/fenway.png" id="fenway">
+                <div class="trip-details">
+                    <div class="trip-name">Fenway Park</div>
+                    <div class="trip-info">
+                        <span>Going on 10/08/2024</span>
+                        <span>👤 2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/boston.png" id="boston">
+                <div class="trip-details">
+                    <div class="trip-name">Boston Common</div>
+                    <div class="trip-info">
+                        <span>Going on 10/09/2024</span>
+                        <span>👤 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/seaport.png" id="seaport">
+                <div class="trip-details">
+                    <div class="trip-name">Seaport Common</div>
+                    <div class="trip-info">
+                        <span>Going on 10/10/2024</span>
+                        <span>👤 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/revere.png" id="revere">
+                <div class="trip-details">
+                    <div class="trip-name">Revere Beach</div>
+                    <div class="trip-info">
+                        <span>Going on 10/05/2024</span>
+                        <span>👤 2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/chmall.png" id="mall">
+                <div class="trip-details">
+                    <div class="trip-name">The Shops at Chestnut Hill</div>
+                    <div class="trip-info">
+                        <span>Going on 10/06/2024</span>
+                        <span>👤 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/logan.png" alt="logan">
+                <div class="trip-details">
+                    <div class="trip-name">Logan Airport</div>
+                    <div class="trip-info">
+                        <span>Going on 10/07/2024</span>
+                        <span>👤 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/bluehills.png" id="bluehills">
+                <div class="trip-details">
+                    <div class="trip-name">Blue Hills Reservation</div>
+                    <div class="trip-info">
+                        <span>Going on 10/08/2024</span>
+                        <span>👤 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/larz.png" id="larz">
+                <div class="trip-details">
+                    <div class="trip-name">Larz Anderson Park</div>
+                    <div class="trip-info">
+                        <span>Going on 10/09/2024</span>
+                        <span>👤 2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-card">
+                <img src="/templates/images/nyc.png" id="nyc">
+                <div class="trip-details">
+                    <div class="trip-name">New York City</div>
+                    <div class="trip-info">
+                        <span>Going on 10/10/2024</span>
+                        <span>👤 6</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-<!--</head>
-<title>Post App</title>
-<body>
-    <h1>Post Something</h1>
-    <form action="/post" method="POST">
-        <textarea name="content" required></textarea>
-        <button type="submit">Post</button>
-    </form>
-    <h2>Posts:</h2>
-    <ul>
-        {% for post in posts %}
-            <li>{{ post }}</li>
-        {% endfor %}
-    </ul>-->
 </body>
 </html>

@@ -26,3 +26,22 @@ li {
     margin: 5px 0;
     padding: 10px;
 }
+
+#eagle {
+    width: 300px;
+    height: 100px;
+}
+
+#trips {
+    width: 50px;
+    height: 50px;
+}
+
+#menu {
+    width: 50px;
+    height: 50px;
+}
+#driver {
+    width: 50px;
+    height: 50px;
+}
