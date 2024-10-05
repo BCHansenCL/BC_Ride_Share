@@ -1,5 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for # type: ignore
-
+import sqlite3
+conn = sqlite3.connect('eaglerides.db')
+cursor = conn.cursor()
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS rides (
+        id INTEGER PRIMARY KEY,
+        location TEXT,
+        timestamp INTEGER,
+        seats INTEGER
+    )
+''')
+cursor.execute('''SELECT destination FROM rides''')
+results = cursor.fetchall()
+for row in results:
+    print(row)
+conn.commit()
+conn.close()
 app = Flask(__name__)
 
 # In-memory list to store posts
