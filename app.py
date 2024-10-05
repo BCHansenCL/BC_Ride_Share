@@ -4,16 +4,16 @@ conn = sqlite3.connect('eaglerides.db')
 cursor = conn.cursor()
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS rides (
-        id INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         location TEXT,
         timestamp INTEGER,
         seats INTEGER
     )
 ''')
-cursor.execute('''SELECT destination FROM rides''')
-results = cursor.fetchall()
-for row in results:
-    print(row)
+location = "harvard"
+time = 1728324000
+seats = 3
+cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
 conn.commit()
 conn.close()
 app = Flask(__name__)
