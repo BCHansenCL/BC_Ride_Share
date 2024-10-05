@@ -153,22 +153,36 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="verticalcategories">
-            <a href="#" class="image-text-button">
-                <img src="/templates/images/menu.png" alt="Icon">
-                Menu
-            </a>
-            <a href="#" class="image-text-button">
-                <img src="/templates/images/trips.png" alt="Icon">
-                Trips
-            </a>
-            <a href="#" class="image-text-button">
-                <img src="/templates/images/drivers.png" alt="Icon">
-                Drivers
-            </a>
-        </div>
+<div class="sidebar">
+    <div class="verticalcategories">
+        <a href="#" class="image-text-button">
+            <img src="/templates/images/menu.png" alt="Icon">
+            Menu
+        </a>
+        <a href="#" class="image-text-button">
+            <img src="/templates/images/trips.png" alt="Icon">
+            Trips
+        </a>
+        <a href="#" class="image-text-button">
+            <img src="/templates/images/drivers.png" alt="Icon">
+            Drivers
+        </a>
+        <a href="#" class="image-text-button" id="createPostButton">
+            <img src="/templates/images/32339-1.png" alt="Icon">
+            Create Post
+        </a>
     </div>
+</div>
+
+<script>
+    // Add an event listener for the "Create Post" button
+    document.getElementById('createPostButton').onclick = function(event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        // Redirect to contact.html
+        window.location.href = 'post.html';
+    };
+</script>
+
 
     <!-- Main Content -->
     <div class="main-content">
@@ -176,7 +190,7 @@
         <!-- Categories -->
         <div class="horizontalcategories">
             <button class="category-btn">Going Today</button>
-            <button class="category-btn active">Going Within 1 Week</button>
+            <button class="category-btn">Going Within 1 Week</button>
             <button class="category-btn">Going Within 1 Month</button>
             <button class="category-btn">Going Within 50 Days</button>
             <button class="category-btn">Going Later This Semester</button>
