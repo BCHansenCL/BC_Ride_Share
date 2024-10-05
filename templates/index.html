@@ -3,9 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Post App</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>EagleRide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .navbar img {
+            width: 150px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 100px;
+            background-color: #f7f7f7;
+            position: fixed;
+            height: 100%;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .category-btn {
+            padding: 10px 15px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .category-btn.active {
+            background-color:#8d4f9b;
+            color: white;
+        }
+
+        /* Grid for trip destinations */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .trip-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .trip-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .trip-details {
+            padding: 15px;
+        }
+
+        .trip-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .trip-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .trip-info span {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="eagleride-logo.png" alt="EagleRide Logo">
+        <ul>
+            <li><a href="#">Trips</a></li>
+            <li><a href="#">Drivers</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active">Going Today</button>
+            <button class="category-btn">Going Within 1 Week</button>
+            <button class="category-btn">Going Within 1 Month</button>
+            <button class="category-btn">Going Within 50 Days</button>
+            <button class="category-btn">Going Later This Semester</button>
+        </div>
+
+        <!-- Trip Grid -->
+        <div class="grid-container">
+            <!-- Trip Card Example -->
+            <div class="trip-card">
+                <img src="map-placeholder.png" alt="Trip Destination">
+                <div class="trip-details">
+                    <div class="trip-name">Natick Mall</div>
+                    <div class="trip-info">
+                        <span>Going on 10/05/2024</span>
+                        <span>👤 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Trip Cards -->
+            <div class="trip-card">
+                <img src="map-placeholder.png" alt="Trip Destination">
+                <div class="trip-details">
+                    <div class="trip-name">Star Market</div>
+                    <div class="trip-info">
+                        <span>Going on 10/06/2024</span>
+                        <span>👤 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add additional trip cards similarly -->
+        </div>
+    </div>
+
+<!--</head>
+<title>Post App</title>
 <body>
     <h1>Post Something</h1>
     <form action="/post" method="POST">
@@ -17,6 +179,6 @@
         {% for post in posts %}
             <li>{{ post }}</li>
         {% endfor %}
-    </ul>
+    </ul>-->
 </body>
 </html>
