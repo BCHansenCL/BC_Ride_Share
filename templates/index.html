@@ -214,10 +214,17 @@
             width: 100%;    /* Set the width of the map */
         }
     </style>
-    <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXOH-3fNDx9TsD5W-dWoJsyzcebzAgQgQ&callback=initMap">
-    </script>
-    <script>
+    <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCXOH-3fNDx9TsD5W-dWoJsyzcebzAgQgQ&q={{trip[0]}}">
+    </iframe>
+        <script>
         function initMap() {
             // The location of a sample point
             const location = { lat: -34.397, lng: 150.644 };
