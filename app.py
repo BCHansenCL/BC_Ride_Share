@@ -35,7 +35,7 @@ def drivers():
     return render_template('drivers.html')
 
 
-@app.route('/submit')
+@app.route('/submit', methods = ['POST'])
 def submit():
     name = request.form.get("name")  # Get name from form
     phone = request.form.get("phone")  # Get phone number
