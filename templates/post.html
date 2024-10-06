@@ -84,10 +84,33 @@
         <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
       </div>
 
-      <div class="form-group">
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination" placeholder="Where are you going?">
-      </div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXOH-3fNDx9TsD5W-dWoJsyzcebzAgQgQ
+      &libraries=places"></script>
+      </head>
+      <body>
+      <!-- Your input field for the location -->
+      <label for="email">Destination:</label>
+      <input id="location-input" type="text" placeholder="Enter a location" />
+      <script>
+          // Initialize the autocomplete feature
+          function initAutocomplete() {
+              const input = document.getElementById('location-input');
+              const autocomplete = new google.maps.places.Autocomplete(input);
+  
+              // Optional: Specify types of places to be suggested
+              autocomplete.setTypes(['geocode']); // You can also use ['establishment'] for businesses
+              
+              // Add event listener for place selection
+              autocomplete.addListener('place_changed', () => {
+                  const place = autocomplete.getPlace();
+                  console.log(place);
+                  // You can access place details here
+              });
+          }
+  
+          // Load the autocomplete function when the window is loaded
+          window.onload = initAutocomplete;
+      </script>
 
       <div class="form-group">
         <label for="num_people">Number of People:</label>
