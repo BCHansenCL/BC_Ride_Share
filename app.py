@@ -46,6 +46,7 @@ def submit():
     phone = request.form['phone']  # Get phone number
     location = request.form['destination']  # Get destination
     seats = request.form['num_people'] 
+    date = request.form['date'] 
     cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
     return redirect(url_for('index'))
 
