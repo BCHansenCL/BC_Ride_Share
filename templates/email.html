@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #5e0000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #5e0000;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="email"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            color: #333;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5e0000;
+            color: #ffffff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(105, 105, 105);
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #5e0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Email Verification</h2>
+        <form action = "/send" id="verificationForm">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="your-email@bc.edu" required>
+
+            <label for="code">Enter verification code:</label>
+            <input type="text" id="code" name="code" placeholder="6-digit code" required>
+            <button type="button" id="sendButton">Send</button>
+            <button type="submit">Verify</button>
+
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const code = document.getElementById('code').value;
+            const message = document.getElementById('message');
+
+            if (email && code) {
+                message.textContent = `Email: ${email}, Code: ${code} submitted!`;
+            } else {
+                message.textContent = 'Please fill in both fields.';
+            }
+        });
+        document.getElementById('sendButton').addEventListener('click',function(event){
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message');
+            const domain = email.substring(email.indexOf('@')+1)
+            if(domain!='bc.edu'){
+                message.textContent='Invalid Domain';
+            }
+            else{
+                message.textContent='Code sent';
+            }
+            
+        });
+    </script>
+</body>
+</html>

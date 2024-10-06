@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for # type: ignore
 import sqlite3
-
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import random
 
 conn = sqlite3.connect('eaglerides.db',check_same_thread=False)
 cursor = conn.cursor()
