@@ -23,7 +23,9 @@ posts = []
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    cursor.execute('SELECT location, date, seats, name, phone FROM rides')
+    trips = cursor.fetchall()
+    return render_template('index.html',trips=trips)
 
 
 @app.route('/post')
@@ -42,10 +44,11 @@ def submit():
     location = request.form.get("destination")  # Get destination
     seats = request.form.get("num_people") 
     date = request.form.get("date")
-    print(location,date,seats,name,phone)
-    cursor.execute('INSERT INTO rides(location,date,seats,name,phone) VALUES(?,?,?,?,?)',(location,date,seats,name,phone))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('eaglerides.db') as conn:  # Open a connection for each request
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO rides(location, date, seats, name, phone) VALUES (?, ?, ?, ?, ?)', 
+                       (location, date, seats, name, phone))
+        conn.commit()  # Commit the changes
     return redirect(url_for('index'))
 
 
