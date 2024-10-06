@@ -11,7 +11,7 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS rides (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         location TEXT,
-        timestamp INTEGER,
+        time datetime,
         seats INTEGER
     )
 ''')
@@ -42,11 +42,11 @@ def post():
 @app.route('/submit')
 def submit():
     print("hello")
-    #name = request.form['name']  # Get name from form
-    #phone = request.form['phone']  # Get phone number
-    #location = request.form['destination']  # Get destination
-    #seats = request.form['num_people'] 
-    #cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
+    name = request.form['name']  # Get name from form
+    phone = request.form['phone']  # Get phone number
+    location = request.form['destination']  # Get destination
+    seats = request.form['num_people'] 
+    cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
     return redirect(url_for('index'))
 
 
