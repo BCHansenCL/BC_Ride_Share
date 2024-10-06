@@ -28,7 +28,7 @@ posts = []
 def index():
     cursor.execute('SELECT location, date, seats, name, phone FROM rides')
     trips = cursor.fetchall()
-    return render_template('email.html',trips=trips)
+    return render_template('index.html',trips=trips)
 
 
 @app.route('/post')

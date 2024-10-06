@@ -222,97 +222,23 @@
     </iframe>
 </head>
 <body>
-    
 
-
-                <!-- For simplicity, I'm assuming each trip image follows a consistent naming scheme based on location -->
-                <div class="trip-details">
-                    <div class="trip-name">{{ trip[0] }}</div>
-                    <div class="trip-info">
-                        <span>Going on {{ trip[1] }}</span>
-                        <span>👤 {{ trip[2] }}</span>
-                    </div>
-                    <div class="trip-info">
-                        <span> {{trip[3]}} </span>
-                    </div>
-                    
-                    
-                </div>
-                <div class="trip-info">
-                    <span> Phone #: {{trip[4]}} </span>
-                </div>
+        <div class="trip-details">
+            <div class="trip-name">{{ trip[0] }}</div>
+            <div class="trip-info">
+                <span>Going on {{ trip[1] }}</span>
+                <span>👤 {{ trip[2] }}</span>
+            </div>
+            <div class="trip-info">
+                <span> {{trip[3]}} </span>
+            </div>    
                 
             </div>
-            {% endfor %}
+            <div class="trip-info">
+                <span> Phone #: {{trip[4]}} </span>
+            </div>    
+        </div>
+        {% endfor %}
         </div>
 </body>
 </html>
-
-<script>
-    // Get the current date in yyyy-mm-dd format
-    const currentDate = new Date().toISOString().split('T')[0];
-
-    // Get the trip data as an array of objects
-    const trips = [
-        { id: 'natick', date: '2024-10-05' },
-        { id: 'star', date: '2024-10-06' },
-        { id: 'library', date: '2024-10-08' },
-        { id: 'fenway', date: '2024-10-11' },
-        { id: 'boston', date: '2024-10-30' },
-        { id: 'seaport', date: '2024-11-05' },
-        { id: 'revere', date: '2024-11-11' },
-        { id: 'mall', date: '2024-11-15' },
-        { id: 'logan', date: '2024-11-17' },
-        { id: 'bluehills', date: '2024-11-24' },
-        { id: 'larz', date: '2024-11-30' },
-        { id: 'nyc', date: '2024-12-10' }
-    ];
-
-    // Function to filter and display trips
-    function filterTrips(filterDays) {
-        trips.forEach(trip => {
-            const tripDate = new Date(trip.date);
-            const diffDays = Math.ceil((tripDate - new Date(currentDate)) / (1000 * 60 * 60 * 24));
-
-            const tripElement = document.getElementById(trip.id);
-            if (diffDays >= 0 && diffDays <= filterDays) {
-                tripElement.parentElement.style.display = 'block'; // Show trip
-            } else {
-                tripElement.parentElement.style.display = 'none'; // Hide trip
-            }
-        });
-    }
-
-    // Filter by different categories
-    document.querySelectorAll('.category-btn').forEach((button, index) => {
-        button.addEventListener('click', () => {
-            // Clear active state on all buttons
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Set active state on the clicked button
-            button.classList.add('active');
-
-            // Apply the filter based on the button clicked
-            switch (index) {
-                case 0: // "Going Today"
-                    filterTrips(0);
-                    break;
-                case 1: // "Going Within 1 Week"
-                    filterTrips(7);
-                    break;
-                case 2: // "Going Within 1 Month"
-                    filterTrips(30);
-                    break;
-                case 3: // "Going Within 50 Days"
-                    filterTrips(50);
-                    break;
-                case 4: // "Going Later This Semester"
-                    filterTrips(120); // Assume semester ends within 120 days
-                    break;
-            }
-        });
-    });
-
-    // Initial filter (e.g., show trips going within 1 week by default)
-    filterTrips(7);
-</script>
