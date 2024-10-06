@@ -90,11 +90,11 @@
       <body>
       <!-- Your input field for the location -->
       <label for="email">Destination:</label>
-      <input id="location-input" type="text" placeholder="Enter a location" />
+      <input type="text" id ="destination" name = "destination" placeholder="Enter a location" />
       <script>
           // Initialize the autocomplete feature
           function initAutocomplete() {
-              const input = document.getElementById('location-input');
+              const input = document.getElementById('destination');
               const autocomplete = new google.maps.places.Autocomplete(input);
   
               // Optional: Specify types of places to be suggested
