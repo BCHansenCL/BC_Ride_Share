@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for # type: ignore
 import sqlite3
 
-def add_event(loc,t,s):
-    cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
-
 
 conn = sqlite3.connect('eaglerides.db')
 cursor = conn.cursor()
@@ -11,14 +8,15 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS rides (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         location TEXT,
-        time datetime,
-        seats INTEGER
+        date datetime,
+        seats INTEGER,
+        name TEXT,
+        phone TEXT
     )
 ''')
 location = "test"
 time = 1728324000
 seats = 3
-add_event(location,time,seats)
 conn.commit()
 conn.close()
 app = Flask(__name__)
@@ -37,6 +35,9 @@ def index():
 def post():
     return render_template('post.html')
 
+@app.route('/drivers')
+def post():
+    return render_template('drivers.html')
 
 
 @app.route('/submit')
@@ -47,7 +48,7 @@ def submit():
     location = request.form['destination']  # Get destination
     seats = request.form['num_people'] 
     date = request.form['date'] 
-    cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
+    cursor.execute('INSERT INTO rides(location,date,seats,name,phone) VALUES(?,?,?,?,?)',(location,date,seats,name,phone))
     return redirect(url_for('index'))
 
 
