@@ -156,10 +156,14 @@
 <div class="sidebar">
     <div class="verticalcategories">
         <a href="#" class="image-text-button">
+            <img src="/static/images/menu.png" alt="Icon">
+            Menu
+        </a>
+        <a href="#" class="image-text-button">
             <img src="/static/images/trips.png" alt="Icon">
             Trips
         </a>
-        <a href="/drivers" class="image-text-button">
+        <a href="#" class="image-text-button">
             <img src="/static/images/drivers.png" alt="Icon">
             Drivers
         </a>
@@ -171,19 +175,10 @@
 </div>
 
 <script>
-    // Add an event listener for the "Create Drivers" button
-    document.getElementById('createDriversButton').onclick = function(event) {
-        event.preventDefault(); // Prevent the default anchor behavior
-        // Redirect to drivers.html
-        window.location.href = 'drivers.html';
-    };
-</script>
-
-<script>
     // Add an event listener for the "Create Post" button
     document.getElementById('createPostButton').onclick = function(event) {
         event.preventDefault(); // Prevent the default anchor behavior
-        // Redirect to post.html
+        // Redirect to contact.html
         window.location.href = 'post.html';
     };
 </script>
@@ -200,26 +195,6 @@
             <button class="category-btn">Going Within 50 Days</button>
             <button class="category-btn">Going Later This Semester</button>
         </div>
-
-        <!-- Trip Grid -->
-        <div class="grid-container">
-            <!-- Loop over the trips passed from the Flask backend -->
-            {% for trip in trips %}
-            <div class="trip-card">
-                <!-- For simplicity, I'm assuming each trip image follows a consistent naming scheme based on location -->
-                <img src="/static/images/{{ trip[0] | lower | replace(' ', '') }}.png" alt="{{ trip[0] }} image">
-                <div class="trip-details">
-                    <div class="trip-name">{{ trip[0] }}</div>
-                    <div class="trip-info">
-                        <span>Going on {{ trip[1] }}</span>
-                        <span>👤 {{ trip[2] }}</span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-</body>
-</html>
 
         <!-- Trip Grid -->
         <div class="grid-container">
