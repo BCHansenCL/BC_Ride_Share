@@ -73,30 +73,30 @@
   <div class="form-container">
     <img src= "/static/images/car.png" alt="EagleRide" width="275" height="100">
     <h2>Create a Post</h2>
-    <form action="/submit">
+    <form action="/submit" name="post_create">
       <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name">
       </div>
 
       <div class="form-group">
-        <label for="email">Phone Number:</label>
-        <input type="text" id="phone" name="email" placeholder="Enter your phone number">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
       </div>
 
       <div class="form-group">
-        <label for="email">Destination:</label>
-        <input type="text" id="destination" name="email" placeholder="Where are you going?">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" placeholder="Where are you going?">
       </div>
 
       <div class="form-group">
-        <label for="email">Number of People:</label>
-        <input type="number" id="num_people" name="email" placeholder="Enter number of people">
+        <label for="num_people">Number of People:</label>
+        <input type="number" id="num_people" name="num_people" placeholder="Enter number of people">
       </div>
 
       <div class="form-group">
-        <label for="email">Date and Time:</label>
-        <input type="datetime-local" id="date" name="email" placeholder="Enter date and time">
+        <label for="date">Date and Time:</label>
+        <input type="datetime-local" id="date" name="date" placeholder="Enter date and time">
       </div>
 
       <input href = "/submit" type="submit" value="Submit">

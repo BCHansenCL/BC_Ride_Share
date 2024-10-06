@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for # type: ign
 import sqlite3
 
 
-conn = sqlite3.connect('eaglerides.db')
+conn = sqlite3.connect('eaglerides.db',check_same_thread=False)
 cursor = conn.cursor()
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS rides (
@@ -14,11 +14,6 @@ cursor.execute('''
         phone TEXT
     )
 ''')
-location = "test"
-time = 1728324000
-seats = 3
-conn.commit()
-conn.close()
 app = Flask(__name__)
 
 # In-memory list to store posts
@@ -36,21 +31,22 @@ def post():
     return render_template('post.html')
 
 @app.route('/drivers')
-def post():
+def drivers():
     return render_template('drivers.html')
 
 
 @app.route('/submit')
 def submit():
-    print("hello")
-    name = request.form['name']  # Get name from form
-    phone = request.form['phone']  # Get phone number
-    location = request.form['destination']  # Get destination
-    seats = request.form['num_people'] 
-    date = request.form['date'] 
+    name = request.form.get("name")  # Get name from form
+    phone = request.form.get("phone")  # Get phone number
+    location = request.form.get("destination")  # Get destination
+    seats = request.form.get("num_people") 
+    date = request.form.get("date")
+    print(location,date,seats,name,phone)
     cursor.execute('INSERT INTO rides(location,date,seats,name,phone) VALUES(?,?,?,?,?)',(location,date,seats,name,phone))
+    conn.commit()
+    conn.close()
     return redirect(url_for('index'))
-
 
 
 if __name__ == '__main__':
