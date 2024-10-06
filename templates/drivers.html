@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>EagleRide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 10px;
+            padding: 20px;
+        }
+
+        /* Grid for driver destinations */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .driver-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .driver-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .driver-details {
+            padding: 15px;
+        }
+
+        .driver-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .driver-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .driver-info span {
+            font-size: 14px;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <img src="/static/images/eagleride-logo.png" id="eagle"/>
+
+        <!-- Driver Grid -->
+        <div class="grid-container">
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">James A. '28</div>
+                    <div class="driver-info">
+                        <span>10 Trips Completed</span>
+                        <span>⭐ 4.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Mary B. '27</div>
+                    <div class="driver-info">
+                        <span>11 Trips Completed</span>
+                        <span>⭐ 5.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Michael C. '27</div>
+                    <div class="driver-info">
+                        <span>12 Trips Completed</span>
+                        <span>⭐ 4.2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Elizabeth D. '26</div>
+                    <div class="driver-info">
+                        <span>13 Trips Completed</span>
+                        <span>⭐ 3.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Robert E. '25</div>
+                    <div class="driver-info">
+                        <span>14 Trips Completed</span>
+                        <span>⭐ 4.4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Susan F. '26</div>
+                    <div class="driver-info">
+                        <span>15 Trips Completed</span>
+                        <span>⭐ 4.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">David G. '25</div>
+                    <div class="driver-info">
+                        <span>16 Trips Completed</span>
+                        <span>⭐ 4.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Sarah H. '25</div>
+                    <div class="driver-info">
+                        <span>17 Trips Completed</span>
+                        <span>⭐ 4.6</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Joe I. '26</div>
+                    <div class="driver-info">
+                        <span>18 Trips Completed</span>
+                        <span>⭐ 4.1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-card">
+                <img src="/static/images/blankpfp.png" id="blankpfp">
+                <div class="driver-details">
+                    <div class="driver-name">Lisa J. '27</div>
+                    <div class="driver-info">
+                        <span>19 Trips Completed</span>
+                        <span>⭐ 5.0</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

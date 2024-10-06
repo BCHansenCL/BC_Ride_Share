@@ -163,7 +163,7 @@
             <img src="/static/images/trips.png" alt="Icon">
             Trips
         </a>
-        <a href="#" class="image-text-button">
+        <a href="/drivers" class="image-text-button">
             <img src="/static/images/drivers.png" alt="Icon">
             Drivers
         </a>
@@ -175,10 +175,19 @@
 </div>
 
 <script>
+    // Add an event listener for the "Create Drivers" button
+    document.getElementById('createDriversButton').onclick = function(event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        // Redirect to drivers.html
+        window.location.href = 'drivers.html';
+    };
+</script>
+
+<script>
     // Add an event listener for the "Create Post" button
     document.getElementById('createPostButton').onclick = function(event) {
         event.preventDefault(); // Prevent the default anchor behavior
-        // Redirect to contact.html
+        // Redirect to post.html
         window.location.href = 'post.html';
     };
 </script>
