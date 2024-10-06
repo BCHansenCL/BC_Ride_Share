@@ -37,12 +37,17 @@ def index():
 def post():
     return render_template('post.html')
 
-# @app.route('/post', methods=['POST'])
-# def post():
-#    content = request.form['content']
-#    if content:
-#        posts.append(content)
-#    return redirect(url_for('index'))
+
+
+@app.route('/submit')
+def submit():
+    print("hello")
+    #name = request.form['name']  # Get name from form
+    #phone = request.form['phone']  # Get phone number
+    #location = request.form['destination']  # Get destination
+    #seats = request.form['num_people'] 
+    #cursor.execute('INSERT INTO rides(location,timestamp,seats) VALUES(?,?,?)',(location,time,seats))
+    return redirect(url_for('index'))
 
 
 
