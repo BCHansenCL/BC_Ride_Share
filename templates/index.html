@@ -206,33 +206,39 @@
             <!-- Loop over the trips passed from the Flask backend -->
             {% for trip in trips %}
             <div class="trip-card">
-  <head>
-    <title>Simple Marker</title>
-    <!-- The callback parameter is required, so we use console.debug as a noop -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXOH-3fNDx9TsD5W-dWoJsyzcebzAgQgQ&callback=console.debug&libraries=maps,marker&v=beta">
-    </script>
+                <title>Google Maps with Flask</title>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      gmp-map {
-        height: 100%;
-      }
-
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        /* Set the size of the map */
+        #map {
+            height: 400px;  /* Set the height of the map */
+            width: 100%;    /* Set the width of the map */
+        }
     </style>
-  </head>
-  <body>
-    <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
-      <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location"></gmp-advanced-marker>
-    </gmp-map>
-  </body>
-</html>
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXOH-3fNDx9TsD5W-dWoJsyzcebzAgQgQ&callback=initMap">
+    </script>
+    <script>
+        function initMap() {
+            // The location of a sample point
+            const location = { lat: -34.397, lng: 150.644 };
+            // The map, centered at the location
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: location,
+            });
+            // The marker, positioned at the location
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>My Google Map</h1>
+    <div id="map"></div>
+
+
                 <!-- For simplicity, I'm assuming each trip image follows a consistent naming scheme based on location -->
                 <img src="/static/images/{{ trip[0] | lower | replace(' ', '') }}.png" alt="{{ trip[0] }} image">
                 <div class="trip-details">
@@ -241,6 +247,8 @@
                         <span>Going on {{ trip[1] }}</span>
                         <span>👤 {{ trip[2] }}</span>
                     </div>
+                    <span> {{trip[3]}} </span>
+                    <span> {{trip[4]}} </span>
                 </div>
             </div>
             {% endfor %}
